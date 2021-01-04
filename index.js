@@ -85,7 +85,6 @@ function openCloseDropdown(event) {
 }
 
 var ctx = document.getElementById('myChart');
-console.log(ctx);
 ctx.height = 500;
 ctx.width = 500;
 
@@ -115,3 +114,15 @@ var lineChart = new Chart(ctx, {
         bezierCurve: false,
     }
 })
+
+window.onscroll = function() {
+    myFunctionScrooll()
+}
+
+function myFunctionScrooll() {
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var heightSc = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+    var scrolled = (winScroll / heightSc) * 100;
+    document.getElementById("myBar").style.width = scrolled + "%";
+}
